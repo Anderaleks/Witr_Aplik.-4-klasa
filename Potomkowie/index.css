@@ -1,0 +1,13 @@
+div>p {
+    color: red;
+}
+div p {
+    background-color: bisque;
+}
+h2+samp {
+    color: aqua;
+}
+
+h2~samp{
+    background-color: gray;
+}
