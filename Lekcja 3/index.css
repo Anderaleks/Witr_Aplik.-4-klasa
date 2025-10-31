@@ -1,0 +1,31 @@
+body {
+    background-color: rgb(183, 251, 206);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    background-color: rgb(231, 172, 131);
+}
+
+.naglowek {
+    background-color: rgba(231, 173, 131, 0.486);
+}
+
+.kreska {
+    background-color: rgb(82, 206, 183);
+}
+
+.stopka {
+    text-align: center;
+    color: red;
+    background-color: rgb(253, 160, 176);
+}
+
+
+p {
+    color: blue;
+}
