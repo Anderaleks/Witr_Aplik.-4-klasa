@@ -1,0 +1,31 @@
+* {
+    color: antiquewhite;
+    text-align: center;
+}
+
+body {
+    background-image: url(kawa.jpg);
+    background-size: cover;
+    ;
+}
+
+div {
+    width: 100px;
+    height: 100px;
+    margin-left: 80%;
+}
+
+div.worek {
+    background-image: url(worek.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+div.kolor {
+    background-color: burlywood;
+}
+
+div.gradient {
+    background-image: linear-gradient(to bottom right, #A6808C, #CCB7AE);
+}

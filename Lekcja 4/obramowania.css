@@ -1,0 +1,81 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: black;
+    color: azure;
+    font-size: larger;
+}
+
+div {
+    width: 200px;
+    height: 200px;
+}
+
+div#size {
+    width: 300px;
+    height: 300px;
+    background-color: #e01616;
+}
+
+p#p-size {
+    width: 75%;
+    background-color: gray;
+}
+
+div#border-width {
+    background-color: navy;
+    border-style: solid;
+    border-color: blueviolet;
+    border-top-width: 10px;
+    border-bottom-width: 10px;
+}
+
+div#border {
+    background-color: lime;
+    border-style: dashed;
+    border-color: orange;
+    border-width: 5px 10px 15px 20px;
+}
+
+div#border-color {
+    background-color: beige;
+    border-style: dotted;
+    border-width: 15px;
+    border-top-color: pink;
+    border-right-color: rgb(206, 130, 142);
+    border-bottom-color: rgb(150, 66, 80);
+    border-left-color: rgb(116, 33, 47);
+}
+
+div#border-color-short {
+    background-color: burlywood;
+    border-style: groove;
+    border-width: 15px;
+    border-color: lightyellow yellow orange orangered;
+}
+
+div#border-short {
+    background-color: violet;
+    border: 10px double red;
+}
+
+div#border-radius-1 {
+    background-color: gold;
+    border: 10px double green;
+    border-radius: 20px;
+}
+
+div#border-radius-2 {
+    background-color: lightslategray;
+    border-width: 10px 20px;
+    border-style: ridge;
+    border-color: #307fff;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+div#border-radius-3 {
+    background-color: indianred;
+    border: 10px dashed;
+    border-color: lime gold blue aqua;
+    border-radius: 50px;
+}
