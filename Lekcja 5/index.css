@@ -1,0 +1,50 @@
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: #dceaec;
+    text-align: center;
+    padding: 30px;
+    border: 2px solid;
+}
+
+h1 {
+    color: #333;
+}
+
+.box {
+    background-color: lightblue;
+    width: 200px;
+    height: 100px;
+    padding: 20px;
+    border: 5px solid navy;
+    margin: 30px auto;
+    line-height: 100px;
+    color: #002244;
+    font-weight: bolder;
+}
+
+.percent-box {
+    background-color: lightcoral;
+    width: 50%;
+    /* szerokość strony */
+    height: 100px;
+    padding: 10px;
+    border: 3px solid darkred;
+    margin: 20px auto;
+    line-height: 100px;
+    color: whitesmoke;
+    font-weight: bold;
+}
+
+.viewport-box {
+    background-color: lightgreen;
+    width: 50vw;
+    /*50% szerokości okna*/
+    height: 20vh;
+    /*20% wysokości okna*/
+    padding: 10px;
+    border: 3px solid darkgreen;
+    margin: 20px auto;
+    color: green;
+    line-height: 20vh;
+    font-weight: bold;
+}

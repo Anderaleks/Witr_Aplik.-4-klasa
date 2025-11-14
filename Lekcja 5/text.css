@@ -1,0 +1,21 @@
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif
+}
+
+h1 {
+    font-size: 24px;
+}
+
+p {
+    font-family: "Raleway", sans-serif;
+    font-size: 120%;
+}
+
+#italic {
+    font-style: italic;
+}
+
+#bold {
+    font-weight: bold;
+    font-family: "Momo Trust Display", sans-serif;
+}
