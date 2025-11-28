@@ -2,8 +2,18 @@ body {
     font-family: Georgia, 'Times New Roman', Times, serif
 }
 
+h1 a {
+    font-size: 24px;
+    font-weight: bold;
+    color: brown;
+    text-decoration: none;
+
+}
 h1 {
     font-size: 24px;
+    font-weight: bold;
+    color: brown;
+
 }
 
 p {
@@ -18,4 +28,104 @@ p {
 #bold {
     font-weight: bold;
     font-family: "Momo Trust Display", sans-serif;
+}
+
+
+#lower {
+    text-transform: lowercase;
+}
+
+#upper {
+    text-transform: uppercase;
+}
+
+#capitalize {
+    text-transform: capitalize;
+}
+
+#under {
+    text-decoration: underline;
+}
+
+#over {
+    text-decoration: overline;
+}
+
+#through {
+    text-decoration: line-through;
+}
+
+#wavy-green {
+    text-decoration: wavy;
+    text-decoration-color: green;
+    text-decoration-line: underline;
+    text-decoration-thickness: 5px;
+}
+
+#pink-dashed {
+    text-decoration: pink dashed underline overline;
+}
+
+#purple-double {
+    text-decoration: underline double purple 3px;
+}
+
+#navy-dotted {
+    text-decoration: line-through dotted navy 5px;
+}
+
+#link {
+    text-decoration: none;
+    color: orange;
+}
+
+#space {
+    line-height: 40px;
+}
+
+#indent {
+    text-indent: 50px;
+}
+
+#letter {
+    letter-spacing: 10px;
+}
+
+#word {
+    word-spacing: 20px;
+}
+
+
+#shadows {
+    width: 80%;
+    margin: 30px auto;
+    box-shadow: 10px 10px 10px palevioletred;
+    border: solid 2px pink;
+}
+
+
+
+#yellow-shadow {
+    text-shadow: 10px 10px 10px yellow;
+}
+
+#green-shadow {
+    text-shadow: 8px -8px green;
+}
+
+#blue-shadow {
+    text-shadow: -10px 10px 3px blue;
+}
+
+#grey-shadow {
+    text-shadow: 0px 5px 5px grey;
+}
+
+#purple-shadow {
+    text-shadow: 0px 0px 5px purple;
+}
+
+
+#stopka {
+    height: 50px;
 }
