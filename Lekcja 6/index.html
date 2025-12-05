@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Odsyłacze</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <h1>Pseudoelementy i pseudoklasy</h1>
+    <dl>
+        <dt>Pseudoelement</dt>
+        <dd>to słowo dodawane do selektora, które umożliwia nadanie stylu konkretnej części wybranego elementu</dd>
+        <dt>Pseudklasa</dt>
+        <dd>to słowo kluczowe dodane do selektora, które określa specjalny stan wybranego elementu/elementów. Na
+            przykład
+            pseudkolasa może być używana do wybierania przycisku (:hover gdy wskaźnik użytkownika znajdzie się nad
+            przyciskiem - można wystylizować jak będzie wyglądał w takim stanie)</dd>
+    </dl>
+    <ol>
+        <li><a id="link" href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:link"
+                target="_blank">:link - nieodwiedzony link</a></li>
+        <li><a id="visited" href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:visited"
+                target="_blank">:visited - odwiedzony link</a></li>
+        <li><a id="active" href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:active"
+                target="_blank">:active - reakcja na naciśnięcie</a></li>
+        <li><a id="hover" href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:hover"
+                target="_blank">:hover - reakcja na najechanie na li </a></li>
+        <li><a id="focus" href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:focus"
+                target="_blank">:focus = active + visited</a></li>
+    </ol>
+    <h1>zastosowanie w FORMULARZACH</h1>
+    <form action="odsylacze.html" method="post"> <input id="text" type="text" name="text"> <input id="submit"
+            type="submit" value="ok"> </form>
+</body>
+
+</html>

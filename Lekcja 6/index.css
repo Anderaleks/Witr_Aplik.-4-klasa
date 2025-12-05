@@ -1,0 +1,59 @@
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: black;
+    color: beige;
+    line-height: 200%;
+    font-size: 1.5em;
+}
+
+h1 {
+    text-align: center;
+}
+
+dt::first-letter {
+    font-size: 30px;
+    color: darkgoldenrod;
+    font-style: italic;
+}
+
+dd::first-line {
+    font-size: 12px;
+    color: gray;
+}
+
+#link:link {
+    text-decoration: none;
+}
+
+#visited:visited {
+    color: lightgreen;
+    text-decoration: none;
+}
+
+#active:active {
+    text-transform: uppercase;
+    color: coral;
+}
+
+#hover:hover {
+    background-color: brown;
+    color: aliceblue;
+    text-decoration: none;
+}
+
+#focus:focus {
+    text-transform: uppercase;
+    color: aqua;
+}
+
+#text:focus,
+#submit:focus {
+    background-color: red;
+    color: whitesmoke;
+}
+
+#text:hover,
+#submit:hover {
+    background-color: darkslategrey;
+
+}
