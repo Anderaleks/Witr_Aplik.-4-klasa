@@ -1,0 +1,63 @@
+div.red {
+    background-color: red;
+    width: 100px;
+    height: 50px;
+}
+
+div.green {
+    background-color: green;
+    width: 100px;
+    height: 50px;
+}
+
+
+div.yellow {
+    background-color: yellow;
+    width: 100px;
+    height: 50px;
+}
+
+.offset{
+position: relative;
+top: 5px;
+left: 40px;
+}
+
+.tlo{
+ background-color: bisque;
+ height: 200px;
+ width: 200px;
+ position: relative;
+}
+
+.cricle{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    position: absolute;
+
+}
+
+.y{
+    background-color: yellowgreen;
+    right: 10px;
+    top: 10px;
+}
+
+.v{
+    background-color: violet;
+    left: 10px;
+    bottom: 10px;
+}
+
+.o{
+    background-color: orange;
+    left: 10px;
+    top: 10px;
+}
+
+.c{
+    background-color: cadetblue;
+    right: 10px;
+    bottom: 10px;
+}

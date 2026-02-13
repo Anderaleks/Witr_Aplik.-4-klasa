@@ -1,0 +1,74 @@
+span {
+    
+    background-color: beige;
+    width: 100px;
+    height: 200px;
+}
+
+strong {
+    background-color: blue;
+    color: white;
+}
+
+em {
+    background-color: red;
+}
+
+a {
+    background-color: green;
+    color: white;
+}
+
+div.red {
+    background-color: red;
+    width: 100px;
+    height: 200px;
+}
+
+div.green {
+    visibility: hidden;
+    background-color: green;
+    width: 100px;
+    height: 200px;
+}
+
+div.yellow {
+    background-color: yellow;
+    width: 100px;
+    height: 200px;
+}
+
+div.blue {
+    background-color: blue;
+}
+
+div.violet {
+    background-color: violet;
+}
+
+div.brown {
+    background-color: brown;
+}
+
+.inline-block {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border: 2px solid black;
+    padding: 10px;
+}
+
+.pusty {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background-color: lightslategray;
+}
+
+.menu {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    background-color: rgb(116, 169, 221);
+    text-align: center;
+}
