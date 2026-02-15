@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Matematyka, którą słychać</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1>Matematyka, którą słychać</h1>
+    <p>
+        Muzyka to nic innego jak fale matematyczne. Zobacz je i usłysz.
+    </p><br>
+
+    <h2>Czym jest dźwięk?</h2>
+    <p>
+        Dźwięk to fala mechaniczna opisana matematycznie. Najprostszy dźwięk można przedstawić jako funkcję sinus:
+    </p>
+    <p id="important">
+        y = A · sin(f · x)
+    </p>
+    <p>
+        A – amplituda (głośność)<br>
+        f – częstotliwość (wysokość dźwięku)<br>
+        x – czas
+    </p>
+    <p>
+        Zmieniając parametry funkcji, zmieniamy to, co słyszymy.
+    </p><br>
+
+    <h2>Fala dźwiękowa</h2>
+    <p>Częstotliwość (wysokość dźwięku)</p>
+    <div id="controls">
+        <input type="range" min="100" max="1000" value="440" id="freq">
+        <br>
+        <button onclick="playSound()">▶ Zagraj dźwięk</button>
+    </div>
+    <canvas id="wave" width="700" height="250"></canvas>
+    <p>
+        Każdy dźwięk muzyczny ma określoną częstotliwość wyrażoną w hercach (Hz).
+        Im większa częstotliwość, tym wyższy dźwięk.
+    </p>
+    <p>
+        Wykres pokazuje falę sinusoidalną generowaną matematycznie w czasie rzeczywistym.
+    </p><br>
+
+    <h2>Jak działa autotune</h2>
+    <p>
+        Autotune przyciąga dźwięk do najbliższej nuty
+    </p>
+    <button onclick="playOff()">"Fałszywy" dźwięk</button>
+    <button onclick="playOn()">Po autotune</button>
+    <p>
+        Autotune to algorytm matematyczny używany w produkcji muzycznej.
+        Analizuje częstotliwość dźwięku i dopasowuje ją do najbliższej nuty skali.
+    </p>
+    <p>
+        Każda nuta ma określoną częstotliwość:
+    </p>
+    <p id="important">
+        A = 440.00 Hz<br>
+        C = 261.63 Hz<br>
+        E = 329.63 Hz
+    </p>
+    <p>
+        Program zaokrągla częstotliwość do najbliższej wartości -
+        to właśnie matematyka stojąca za autotune.
+    </p><br>
+    <p>
+        Ukazuje nam to, że matematyka jest podstawą muzyki, technologii audio oraz produkcji dźwięku,a każdy dźwięk można opisać <br> funkcją matematyczną i przetwarzać za pomocą algorytmów.
+    </p>
+    <footer>
+        <code id="important">
+            Matematyka to nie tylko liczby - to język, którym opisany jest świat dźwięków.
+        </code>
+        
+        <div class="loga">
+            <img src="logos/logo1.png" alt="logo1">
+            <img src="logos/logo2.svg" alt="logo2">
+            <img src="logos/logo3.png" id="logo3" alt="logo3">
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
