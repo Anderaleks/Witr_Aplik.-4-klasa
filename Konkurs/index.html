@@ -23,6 +23,7 @@
             <input type="range" min="100" max="1000" value="440" id="freq" oninput="updateFreqLabel(this.value)">
             <span id="freqVal">440 Hz</span>
             <button onclick="playSound()">▶ Zagraj i narysuj</button>
+            <button onclick="playScale()" style="background: #a3a0e6; color: white;">Zagraj skalę logarytmiczną</button>
         </div>
         <canvas id="wave" width="700" height="200"></canvas>
     </section>
@@ -79,7 +80,6 @@
             <button onclick="playOff()">"Fałszywy" (430Hz)</button>
             <button onclick="playOn()">Po autotune (440Hz)</button>
         </div>
-        <button onclick="playScale()" style="background: #a3a0e6; color: white;">Zagraj skalę logarytmiczną</button>
     </section>
 
     <section class="card">
