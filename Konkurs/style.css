@@ -1,84 +1,80 @@
 body {
-    background: #120907;
-    color: white;
-    font-family: Arial;
+    background: #0f0a1a;
+    color: #f0f0f0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
     margin: 0;
+    line-height: 1.6;
 }
-
 
 h1 {
-    font-size: 50px;
+    font-size: 3rem;
     color: #e2dfed;
+    margin-top: 40px;
+    text-shadow: 0 0 20px rgba(163, 160, 230, 0.4);
 }
 
-h2 {
-    color: #a3a0e6;
+.card {
+    background: #1a162b;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid #332d5a;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 #important {
     color: #a3a0e6;
-}
-
-#controls {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 10px;
+    font-size: 1.4rem;
+    margin: 20px 0;
 }
 
 canvas {
-    background: #27243a;
-    border: 1px solid #60608a;
-    margin-top: 20px;
+    background: #0a0814;
+    border-radius: 10px;
+    border: 1px solid #444;
+    width: 100%;
+    /* Elastyczność */
 }
 
-input[type=range] {
-    width: 300px;
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 10px;
+    border-bottom: 1px solid #332d5a;
 }
 
 button {
-    background: #e2dfed;
+    background: #a3a0e6;
+    color: #120907;
     border: none;
-    padding: 12px 25px;
-    font-size: 16px;
-    margin: 10px;
+    padding: 12px 20px;
+    font-weight: bold;
+    border-radius: 5px;
     cursor: pointer;
+    transition: 0.3s;
+    margin: 5px;
 }
 
 button:hover {
-    background: #a3a0e6;
-    color: white;
+    background: #e2dfed;
+    transform: translateY(-2px);
 }
 
-footer {
-    margin-top: 80px;
-    padding: 40px;
-    border-top: 1px solid #333;
+.loga img {
+    filter: grayscale(1) brightness(2);
+    max-height: 40px;
+    margin: 20px;
+    transition: 0.3s;
 }
 
-.loga{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:40px;
-    flex-wrap:wrap;
-}
-
-.loga img{
-    max-height: 10vh;       
-    width:auto;           
-    display:block;
-    filter: brightness(0) invert(1); 
-    object-fit: contain;  
-    transition:0.3s;
-}
-
-#logo3{
-    max-height: 180px;
-}
-
-.loga img:hover{
-    transform:scale(1.1);
-    opacity:1;
+.loga img:hover {
+    filter: none;
+    transform: scale(1.1);
 }

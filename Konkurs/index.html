@@ -5,81 +5,107 @@
     <meta charset="UTF-8">
     <title>Matematyka, którą słychać</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
 <body>
-
+    
     <h1>Matematyka, którą słychać</h1>
-    <p>
-        Muzyka to nic innego jak fale matematyczne. Zobacz je i usłysz.
-    </p><br>
+    <code>Muzyka to nic innego jak fale matematyczne. Zobacz je i usłysz.</code>
+<hr>
+    <section class="card">
+        <h2>Fundament: Sinusoida</h2>
+        <p>Dźwięk to fala mechaniczna, którą opisujemy funkcją trygonometryczną:</p>
+        <p id="important">$$y(t) = A \cdot \sin(2\pi f t)$$</p>
+        <p>Gdzie f to częstotliwość, a A to amplituda.</p>
+        <div id="controls">
+            <input type="range" min="100" max="1000" value="440" id="freq" oninput="updateFreqLabel(this.value)">
+            <span id="freqVal">440 Hz</span>
+            <button onclick="playSound()">▶ Zagraj i narysuj</button>
+        </div>
+        <canvas id="wave" width="700" height="200"></canvas>
+    </section>
 
-    <h2>Czym jest dźwięk?</h2>
-    <p>
-        Dźwięk to fala mechaniczna opisana matematycznie. Najprostszy dźwięk można przedstawić jako funkcję sinus:
-    </p>
-    <p id="important">
-        y = A · sin(f · x)
-    </p>
-    <p>
-        A – amplituda (głośność)<br>
-        f – częstotliwość (wysokość dźwięku)<br>
-        x – czas
-    </p>
-    <p>
-        Zmieniając parametry funkcji, zmieniamy to, co słyszymy.
-    </p><br>
+    <section class="card">
+        <h2>Szereg Harmoniczny: Dlaczego instrument brzmi bogato?</h2>
+        <p>Prawdziwe instrumenty nie generują jednej fali. Generują <b>szereg harmoniczny</b> – sumę wielu fal o
+            częstotliwościach będących wielokrotnościami tonu podstawowego (f, 2f, 3f...).</p>
+        <p id="important">$$f(x) = \sum_{n=1}^{N} \frac{1}{n} \sin(n \omega t)$$</p>
+        <button onclick="playHarmonics()">Posłuchaj sumy harmonicznych</button>
+        <p><small>To matematyczne dodawanie fal tworzy "barwę" dźwięku.</small></p>
+    </section>
 
-    <h2>Fala dźwiękowa</h2>
-    <p>Częstotliwość (wysokość dźwięku)</p>
-    <div id="controls">
-        <input type="range" min="100" max="1000" value="440" id="freq">
-        <br>
-        <button onclick="playSound()">▶ Zagraj dźwięk</button>
-    </div>
-    <canvas id="wave" width="700" height="250"></canvas>
-    <p>
-        Każdy dźwięk muzyczny ma określoną częstotliwość wyrażoną w hercach (Hz).
-        Im większa częstotliwość, tym wyższy dźwięk.
-    </p>
-    <p>
-        Wykres pokazuje falę sinusoidalną generowaną matematycznie w czasie rzeczywistym.
-    </p><br>
 
-    <h2>Jak działa autotune</h2>
-    <p>
-        Autotune przyciąga dźwięk do najbliższej nuty
-    </p>
-    <button onclick="playOff()">"Fałszywy" dźwięk</button>
-    <button onclick="playOn()">Po autotune</button>
-    <p>
-        Autotune to algorytm matematyczny używany w produkcji muzycznej.
-        Analizuje częstotliwość dźwięku i dopasowuje ją do najbliższej nuty skali.
-    </p>
-    <p>
-        Każda nuta ma określoną częstotliwość:
-    </p>
-    <p id="important">
-        A = 440.00 Hz<br>
-        C = 261.63 Hz<br>
-        E = 329.63 Hz
-    </p>
-    <p>
-        Program zaokrągla częstotliwość do najbliższej wartości -
-        to właśnie matematyka stojąca za autotune.
-    </p><br>
-    <p>
-        Ukazuje nam to, że matematyka jest podstawą muzyki, technologii audio oraz produkcji dźwięku,a każdy dźwięk można opisać <br> funkcją matematyczną i przetwarzać za pomocą algorytmów.
-    </p>
+
+    <section class="card">
+        <h2>Matematyka Interwałów</h2>
+        <p>Harmonia to proste stosunki liczb naturalnych. Gdy słyszymy dwa dźwięki, nasz mózg szuka matematycznego
+            porządku:</p>
+        <table align="center">
+            <tr>
+                <th>Interwał</th>
+                <th>Stosunek</th>
+                <th>Efekt</th>
+            </tr>
+            <tr>
+                <td>Oktawa</td>
+                <td>2:1</td>
+                <td>Ten sam dźwięk, wyżej</td>
+            </tr>
+            <tr>
+                <td>Kwinta</td>
+                <td>3:2</td>
+                <td>Najczystsze współbrzmienie</td>
+            </tr>
+            <tr>
+                <td>Kwarta</td>
+                <td>4:3</td>
+                <td>Stabilność</td>
+            </tr>
+        </table>
+        <button onclick="playInterval(1.5)">Zagraj Kwintę (3:2)</button>
+        <button onclick="playInterval(2)">Zagraj Oktawę (2:1)</button>
+    </section>
+
+    <section class="card">
+        <h2>Logarytmy i Autotune</h2>
+        <p>
+            Ludzkie ucho słyszy logarytmicznie. Odległość między nutami w skali to stały mnożnik:
+            <b>1.05946</b> (jest to pierwiastek 12-go stopnia z liczby 2).
+        </p>
+        <div class="buttons-row">
+            <button onclick="playOff()">"Fałszywy" (430Hz)</button>
+            <button onclick="playOn()">Po autotune (440Hz)</button>
+        </div>
+        <button onclick="playScale()" style="background: #a3a0e6; color: white;">Zagraj skalę logarytmiczną</button>
+    </section>
+
+    <section class="card">
+        <h2>Barwa dźwięku: Geometria słyszenia</h2>
+        <p>
+            Sinusoida to "czysty" dźwięk, ale w muzyce używamy też innych kształtów fal.
+            Ich ostrość wynika z liczby i głośności matematycznych składowych (harmonicznych).
+        </p>
+        <div class="buttons-row">
+            <button onclick="changeAndPlay('sine')">Sinusoidalna (Łagodna)</button>
+            <button onclick="changeAndPlay('square')">Kwadratowa (Ostra/Retro)</button>
+            <button onclick="changeAndPlay('sawtooth')">Piłokształtna (Bogata)</button>
+            <button onclick="changeAndPlay('triangle')">Trójkątna (Stłumiona)</button>
+        </div>
+        <p>
+            Kształt fali bezpośrednio wpływa na jej <b>widmo częstotliwościowe</b>.
+            Fala kwadratowa zawiera tylko nieparzyste harmoniczne, co nadaje jej "robotyczny" charakter.
+        </p>
+    </section>
+
     <footer>
-        <code id="important">
-            Matematyka to nie tylko liczby - to język, którym opisany jest świat dźwięków.
-        </code>
-        
+        <hr>
+        <q id="important">Matematyka to język, którym opisany jest świat dźwięków.</q>
         <div class="loga">
-            <img src="logos/logo1.png" alt="logo1">
+            <img src="logos/logo1.svg" alt="logo1">
             <img src="logos/logo2.svg" alt="logo2">
-            <img src="logos/logo3.png" id="logo3" alt="logo3">
+            <img src="logos/logo3.png" alt="logo3">
         </div>
     </footer>
 
