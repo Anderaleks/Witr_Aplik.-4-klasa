@@ -1,71 +1,67 @@
 body {
-    background: #0f0a1a;
-    color: #f0f0f0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #120907; /* */
+    color: white; /* */
+    font-family: Arial, sans-serif;
     text-align: center;
     margin: 0;
-    line-height: 1.6;
+    padding-bottom: 50px;
 }
 
-h1 {
-    font-size: 3rem;
-    color: #e2dfed;
-    margin-top: 40px;
-    text-shadow: 0 0 20px rgba(163, 160, 230, 0.4);
-}
+h1 { font-size: 50px; color: #e2dfed; margin-top: 30px; } /* */
 
 .card {
     background: #1a162b;
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 30px;
+    max-width: 850px;
+    margin: 30px auto;
+    padding: 25px;
     border-radius: 15px;
-    border: 1px solid #332d5a;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border: 1px solid #332d5a; /* */
 }
 
-#important {
-    color: #a3a0e6;
-    font-size: 1.4rem;
+#important { color: #a3a0e6; font-size: 1.2em; } /* */
+
+.definitions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
     margin: 20px 0;
 }
 
+.def-item {
+    background: #27243a; /* */
+    padding: 15px;
+    border-left: 4px solid #a3a0e6;
+    border-radius: 5px;
+    text-align: left;
+}
+
+.def-item b { color: #e2dfed; display: block; margin-bottom: 5px; }
+
 canvas {
-    background: #0a0814;
-    border-radius: 10px;
-    border: 1px solid #444;
+    background: #27243a; /* */
+    border: 1px solid #60608a; /* */
+    margin-top: 20px;
     width: 100%;
-    /* Elastyczność */
-}
-
-table {
-    width: 80%;
-    margin: 20px auto;
-    border-collapse: collapse;
-}
-
-th,
-td {
-    padding: 10px;
-    border-bottom: 1px solid #332d5a;
+    max-width: 700px;
 }
 
 button {
-    background: #a3a0e6;
-    color: #120907;
+    background: #e2dfed; /* */
     border: none;
-    padding: 12px 20px;
-    font-weight: bold;
-    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 14px;
+    margin: 5px;
     cursor: pointer;
     transition: 0.3s;
-    margin: 5px;
 }
 
-button:hover {
-    background: #e2dfed;
-    transform: translateY(-2px);
-}
+button:hover { background: #a3a0e6; color: white; } /* */
+
+.buttons-row { margin: 15px 0; }
+
+table { width: 100%; margin: 20px 0; color: #ccc; }
+th { color: #a3a0e6; border-bottom: 1px solid #444; padding: 10px; }
+td { padding: 10px; border-bottom: 1px solid #222; }
 
 .loga img {
     filter: grayscale(1) brightness(2);

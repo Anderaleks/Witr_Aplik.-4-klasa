@@ -2,7 +2,7 @@
 <html lang="pl">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" name="author" content="Aleksander Pabian">
     <title>Matematyka, którą słychać</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -10,39 +10,89 @@
 </head>
 
 <body>
-    
+
     <h1>Matematyka, którą słychać</h1>
     <code>Muzyka to nic innego jak fale matematyczne. Zobacz je i usłysz.</code>
-<hr>
+    <hr>
+
     <section class="card">
         <h2>Fundament: Sinusoida</h2>
-        <p>Dźwięk to fala mechaniczna, którą opisujemy funkcją trygonometryczną:</p>
-        <p id="important">$$y(t) = A \cdot \sin(2\pi f t)$$</p>
-        <p>Gdzie f to częstotliwość, a A to amplituda.</p>
+        <p>Dźwięk to fala mechaniczna opisana funkcją trygonometryczną:</p>
+        <p id="important">\[y(t) = A \cdot \sin(2\pi f t)\]</p>
+
+        <div class="definitions">
+            <div class="def-item">
+                <b>y(t) – Położenie fali</b>
+                <p>Wartość w konkretnym momencie czasu t. Na ekranie to wysokość punktu na wykresie.</p>
+            </div>
+            <div class="def-item">
+                <b>A – Amplituda</b>
+                <p>Maksymalne odchylenie fali. Odpowiada za głośność dźwięku.</p>
+            </div>
+            <div class="def-item">
+                <b>2π (Dwa Pi)</b>
+                <p>Stała (ok. 6.28) zamieniająca częstotliwość na ruch kołowy dla funkcji sinus.</p>
+            </div>
+            <div class="def-item">
+                <b>f – Częstotliwość (Hz)</b>
+                <p>Liczba drgań na sekundę. Im wyższa, tym wyższy dźwięk słyszymy.</p>
+            </div>
+        </div>
+
         <div id="controls">
             <input type="range" min="100" max="1000" value="440" id="freq" oninput="updateFreqLabel(this.value)">
-            <span id="freqVal">440 Hz</span>
+            <span id="freqVal">440 Hz</span><br>
             <button onclick="playSound()">▶ Zagraj i narysuj</button>
             <button onclick="playScale()" style="background: #a3a0e6; color: white;">Zagraj skalę logarytmiczną</button>
         </div>
         <canvas id="wave" width="700" height="200"></canvas>
+
     </section>
 
     <section class="card">
-        <h2>Szereg Harmoniczny: Dlaczego instrument brzmi bogato?</h2>
-        <p>Prawdziwe instrumenty nie generują jednej fali. Generują <b>szereg harmoniczny</b> - sumę wielu fal o
-            częstotliwościach będących wielokrotnościami tonu podstawowego (f, 2f, 3f...).</p>
-        <p id="important">$$f(x) = \sum_{n=1}^{N} \frac{1}{n} \sin(n \omega t)$$</p>
+        <h2>Szereg Harmoniczny: Bogactwo dźwięku</h2>
+        <p>Instrumenty generują sumę wielu fal o częstotliwościach będących wielokrotnościami tonu podstawowego (f, 2f,
+            3f...).</p>
+        <p id="important">\[f(x) = \sum_{n=1}^{N} \frac{1}{n} \sin(n \omega t)\]</p>
+
+        <div class="formula-explanation">
+            <div class="def-item">
+                <b>Σ (Sigma)</b>
+                <p>To matematyczny rozkaz: "dodaj do siebie wszystkie elementy od 1 do N".</p>
+            </div>
+            <div class="def-item">
+                <b>sin(...)</b>
+                <p>To kształt pojedynczej fali (czysty dźwięk).</p>
+            </div>
+            <div class="def-item">
+                <b>1/n (Amplituda)</b>
+                <p>Sprawia, że każda kolejna warstwa dźwięku jest cichsza. Bez tego dźwięk byłby nieznośnym hałasem.</p>
+            </div>
+            <div class="def-item">
+                <b>sin(n ω t) (Częstotliwość)</b>
+                <p>Każda nowa fala drga "n" razy szybciej od pierwszej. To one tworzą harmonię.</p>
+            </div>
+        </div>
+        <br>
         <button onclick="playHarmonics()">Posłuchaj sumy harmonicznych</button>
-        <p><small>To matematyczne dodawanie fal tworzy "barwę" dźwięku.</small></p>
     </section>
+    <section class="card">
+        <div>
+            <h2>Szereg Fouriera</h2>
+            <p>Matematyczny dowód na to, że każdy złożony dźwięk (np. mowę) można rozłożyć na sumę prostych funkcji
+                sinus.</p>
+        </div>
 
-
+    </section>
 
     <section class="card">
         <h2>Matematyka Interwałów</h2>
-        <p>Harmonia to proste stosunki liczb naturalnych. Gdy słyszymy dwa dźwięki, nasz mózg szuka matematycznego
-            porządku:</p>
+        <p>Harmonia to proste stosunki liczb naturalnych:</p>
+        <div class="def-item">
+            <b>Interwał</b>
+            <p>Matematyczny stosunek dwóch częstotliwości. Oktawa to zawsze stosunek 2:1, co daje wrażenie tego samego
+                dźwięku na innej wysokości.</p>
+        </div>
         <table align="center">
             <tr>
                 <th>Interwał</th>
@@ -62,20 +112,19 @@
             <tr>
                 <td>Kwarta</td>
                 <td>4:3</td>
-                <td>Stabilność</td>
+                <td>Stabilność i spokój</td>
             </tr>
         </table>
-        <button onclick="playInterval(1.5)">Zagraj Kwintę (3:2)</button>
-        <button onclick="playInterval(2)">Zagraj Oktawę (2:1)</button>
+        <div class="buttons-row">
+            <button onclick="playInterval(1.5)">Zagraj Kwintę (3:2)</button>
+            <button onclick="playInterval(2)">Zagraj Oktawę (2:1)</button>
+        </div>
     </section>
 
     <section class="card">
         <h2>Logarytmy i Autotune</h2>
-        <p>
-            Ludzkie ucho słyszy logarytmicznie. Odległość między nutami w skali to stały mnożnik:
-            <b>1.05946</b> (jest to pierwiastek 12-go stopnia z liczby 2). Autotune analizuje sygnał audio i natychmiastowo przesuwa dźwięk do najbliższej poprawnej nuty w wybranej skali.
-
-        </p>
+        <p>Ucho słyszy logarytmicznie. Odległość między nutami to mnożnik <b>1.05946</b>.</p>
+        <p>Autotune przesuwa "fałszywy" dźwięk do najbliższej poprawnej częstotliwości w skali.</p>
         <div class="buttons-row">
             <button onclick="playOff()">"Fałszywy" (430Hz)</button>
             <button onclick="playOn()">Po autotune (440Hz)</button>
@@ -83,21 +132,38 @@
     </section>
 
     <section class="card">
+
         <h2>Barwa dźwięku: Geometria słyszenia</h2>
+
         <p>
+
             Sinusoida to "czysty" dźwięk, ale w muzyce używamy też innych kształtów fal.
+
             Ich ostrość wynika z liczby i głośności matematycznych składowych (harmonicznych).
+
         </p>
+
         <div class="buttons-row">
+
             <button onclick="changeAndPlay('sine')">Sinusoidalna (Łagodna)</button>
+
             <button onclick="changeAndPlay('square')">Kwadratowa (Ostra/Retro)</button>
+
             <button onclick="changeAndPlay('sawtooth')">Piłokształtna (Bogata)</button>
+
             <button onclick="changeAndPlay('triangle')">Trójkątna (Stłumiona)</button>
+
         </div>
+
         <p>
-            Kształt fali bezpośrednio wpływa na jej <b>widmo częstotliwościowe</b>.
+
+            Kształt fali bezpośrednio wpływa na jej <b>widmo częstotliwościowe</b> (rozkład natężeń składowych
+            harmonicznych sygnału w funkcji ich częstotliwości).
+
             Fala kwadratowa zawiera tylko nieparzyste harmoniczne, co nadaje jej "robotyczny" charakter.
+
         </p>
+
     </section>
 
     <footer>
