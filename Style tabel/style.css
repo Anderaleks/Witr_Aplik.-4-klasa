@@ -1,0 +1,81 @@
+/* Podstawowe resetowanie i czcionka */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
+    padding: 40px;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+/* Kontener dla responsywności i zaokrąglonych rogów */
+.table-wrapper {
+    overflow: hidden;
+    border-radius: 10px; /* Zaokrąglone rogi całej tabeli */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    background: white;
+}
+
+/* Stylizacja tabeli */
+table {
+    width: 100%;
+    border-collapse: collapse; /* Łączenie obramowań w jedną linię */
+    background-color: white;
+}
+
+/* Nagłówek tabeli */
+thead {
+    background-color: #3498db;
+    color: white;
+}
+
+th, td {
+    padding: 15px 20px;
+    text-align: left;
+    border-bottom: 1px solid #eee; /* Cienkie linie między wierszami */
+}
+
+/* Stylizacja TH (nagłówków) */
+th {
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+/* Efekt Zebry - co drugi wiersz ma inny kolor */
+tbody tr:nth-child(even) {
+    background-color: #f8fbfd;
+}
+
+/* EFEKT HOVER - podświetlenie wiersza po najechaniu myszką */
+tbody tr:hover {
+    background-color: #ebf5fb;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+/* Ostatni wiersz bez linii na dole dla estetyki */
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Dodatkowe style dla statusów (span wewnątrz tabeli) */
+.status {
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.done { background: #d4edda; color: #155724; }
+.pending { background: #fff3cd; color: #856404; }
+.alert { background: #f8d7da; color: #721c24; }
