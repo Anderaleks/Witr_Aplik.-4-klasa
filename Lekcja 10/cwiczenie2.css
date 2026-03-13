@@ -1,0 +1,45 @@
+* {
+    box-sizing: border-box;
+}
+
+
+
+div.produkt {
+    width: 500px;
+    background-color: whitesmoke;
+    border: 1px solid grey;
+    margin: 50px auto;
+    padding: 20px;
+    position: relative;
+    display: flow-root;
+}
+
+div.promo-tag {
+    position: absolute;
+    top: -15px;
+    left: 20px;
+    padding: 5px;
+    background-color: red;
+    color: wheat;
+    font-weight: bold;
+}
+
+div.foto {
+    width: 150px;
+    height: 150px;
+
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    background-image: url("/Lekcja\ 4/worek.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+div.cena-bar {
+    background-color: green;
+    color: aliceblue;
+    text-align: right;
+}
