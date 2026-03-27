@@ -1,0 +1,43 @@
+table{
+    width: 80%;
+    border-collapse: collapse;
+    margin: auto;
+    border: none;
+    box-shadow: 0px 0px 10px gray;
+}
+
+th{
+background-color: #2c3e50;
+color: aliceblue;
+text-align: left;
+padding: 12px;
+border-bottom: orange;
+}
+
+td{
+    padding: 12px;
+    border-bottom: 1px solid lightgray;
+}
+
+
+.button {
+    background-color: #3498db;
+    color: white;
+    border-radius: 5px;
+    box-sizing: initial;
+    display: inline-block;
+    text-decoration: none;
+}
+
+tr:nth-child(even) {
+    background-color: #f8fbfd;
+}
+
+
+tr:hover {
+    background-color: lightpink;
+}
+.button:active{
+    background-color: darkblue;
+}
+
