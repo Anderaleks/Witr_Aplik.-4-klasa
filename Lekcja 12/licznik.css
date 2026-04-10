@@ -1,0 +1,36 @@
+.licznik{
+    counter-reset: licznik;
+}
+
+.auto{
+    counter-increment: licznik;
+}
+
+b{
+    color: darkolivegreen;
+}
+
+.auto::before{
+    content: "👍" counter(licznik);
+    font-weight: bolder;
+    color: darkolivegreen;
+}
+
+.lista {
+    counter-reset: lista;
+    margin-top: 10px;
+}
+ 
+.element {
+    counter-increment: lista;
+    margin: 5px 0;
+}
+ 
+.element::before {
+    content: "•  ";
+    font-weight: bold;
+}
+ 
+ 
+
+ 

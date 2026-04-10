@@ -1,0 +1,28 @@
+h1+p {
+    color: blue;
+    font-style: italic;
+}
+
+ul li {
+    border: 1px black solid;
+}
+
+li>ul li {
+    border: none;
+}
+
+img {
+    width: 150px;
+}
+
+img~p {
+    color: gray;
+}
+
+h2 {
+    text-align: center;
+}
+
+.task4 p~p {
+    margin-left: 30px;
+}
