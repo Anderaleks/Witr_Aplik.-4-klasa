@@ -1,0 +1,60 @@
+*{
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #eef;
+}
+
+header {
+    background-color: darkblue;
+    text-align: center;
+    color: white;
+     padding: 20px
+
+}
+
+main{
+    display: flow-root;
+}
+
+.panel {
+
+    font-weight: bold;
+    text-align: center;
+    
+}
+.link{
+ display: inline-block;
+ padding: 5px;
+}
+
+a:hover {
+    background-color: yellow;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.oferta {
+    display: inline-block;
+    width: 30%;
+    margin: 1.5%;
+    background-color: white;
+    border: 1px blue dotted;
+    padding: 20px;
+}
+
+footer {
+    background-color: gray;
+    font-weight: bold;
+    text-align: center;
+     padding: 10px
+}

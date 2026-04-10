@@ -11,7 +11,7 @@ b{
 }
 
 .auto::before{
-    content: "👍" counter(licznik);
+    content: "👍 " counter(licznik);
     font-weight: bolder;
     color: darkolivegreen;
 }
