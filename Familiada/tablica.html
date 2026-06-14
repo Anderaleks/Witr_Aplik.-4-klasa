@@ -2,195 +2,118 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <title>FAMILIADA ZSI KIELCE - TABLICA</title>
+    <title>FAMILIADA ZSI - TABLICA</title>
     <style>
         body {
-            margin: 0;
-            background: radial-gradient(circle, #1e3c72 0%, #111f38 100%);
-            color: white;
-            font-family: 'Arial Black', Gadget, sans-serif;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
-            height: 100vh;
-            padding: 20px;
-            box-sizing: border-box;
+            margin: 0; background: radial-gradient(circle, #1e3c72 0%, #111f38 100%);
+            color: white; font-family: 'Arial Black', Gadget, sans-serif; overflow: hidden;
+            display: flex; flex-direction: column; align-items: center; justify-content: space-between;
+            height: 100vh; padding: 20px; box-sizing: border-box;
         }
-        header {
-            text-align: center;
-            font-size: 2.5rem;
-            text-shadow: 3px 3px 0px #000;
-            color: #f1c40f;
-            margin-top: 10px;
-        }
+        header { text-align: center; font-size: 2.5rem; text-shadow: 3px 3px 0px #000; color: #f1c40f; margin-top: 10px; }
         #question-display {
-            font-size: 2.2rem;
-            background: rgba(0,0,0,0.5);
-            padding: 15px 40px;
-            border-radius: 50px;
-            border: 3px solid #f1c40f;
-            text-align: center;
-            max-width: 80%;
+            font-size: 2.2rem; background: rgba(0,0,0,0.5); padding: 15px 40px;
+            border-radius: 50px; border: 3px solid #f1c40f; text-align: center; max-width: 80%;
         }
-        .board-container {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            width: 90%;
-            max-width: 1000px;
-            flex-grow: 1;
-            margin: 20px 0;
+        .game-layout { display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: 1300px; flex-grow: 1; margin: 10px 0; }
+        .side-strikes {
+            display: flex; flex-direction: column; gap: 15px; font-size: 5rem; font-weight: bold;
+            color: #551515; text-shadow: 2px 2px 0px #000; width: 100px; text-align: center;
+            background: rgba(0,0,0,0.2); padding: 20px 10px; border-radius: 15px; border: 2px dashed rgba(255,255,255,0.1);
         }
+        .side-strikes .active-strike {
+            color: #e74c3c; text-shadow: 0 0 20px #e74c3c, 2px 2px 0px #000;
+            animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .board-container { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; flex-grow: 1; margin: 0 20px; height: 100%; max-height: 450px; }
         .slot {
-            background: linear-gradient(to bottom, #34495e, #2c3e50);
-            border: 4px solid #7f8c8d;
-            border-radius: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 30px;
-            font-size: 2rem;
-            text-shadow: 2px 2px 0px #000;
-            box-shadow: inset 0 0 20px rgba(0,0,0,0.6);
+            background: linear-gradient(to bottom, #34495e, #2c3e50); border: 4px solid #7f8c8d;
+            border-radius: 10px; display: flex; justify-content: space-between; align-items: center;
+            padding: 0 30px; font-size: 1.8rem; text-shadow: 2px 2px 0px #000; box-shadow: inset 0 0 20px rgba(0,0,0,0.6);
         }
         .slot .text { color: #bdc3c7; }
         .slot .pts { color: #f1c40f; font-weight: bold; }
-        .slot.revealed {
-            background: linear-gradient(to bottom, #2ecc71, #27ae60);
-            border-color: #fff;
-        }
+        .slot.revealed { background: linear-gradient(to bottom, #2ecc71, #27ae60); border-color: #fff; }
         .slot.revealed .text { color: #fff; text-transform: uppercase; }
         
-        .score-row {
-            display: flex;
-            justify-content: space-between;
-            width: 90%;
-            max-width: 1000px;
-            margin-bottom: 20px;
-        }
-        .score-box {
-            background: #c0392b;
-            padding: 15px 40px;
-            font-size: 2.5rem;
-            border-radius: 15px;
-            border: 4px solid #fff;
-            text-shadow: 2px 2px 0px #000;
-            min-width: 150px;
-            text-align: center;
-        }
-        .score-box.blue { background: #2980b9; }
+        .score-row { display: flex; justify-content: space-between; width: 90%; max-width: 1000px; margin-bottom: 20px; }
+        .score-box { background: #2980b9; padding: 15px 30px; font-size: 2.2rem; border-radius: 15px; border: 4px solid #fff; text-shadow: 2px 2px 0px #000; min-width: 250px; text-align: center; }
+        .score-box.red { background: #e74c3c; }
 
-        /* MODUŁ FINAŁOWY */
-        .final-container {
-            display: none; /* Domyślnie ukryty */
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            width: 90%;
-            max-width: 1000px;
-            flex-grow: 1;
-            margin: 20px 0;
-        }
-        .final-column {
-            background: rgba(0, 0, 0, 0.4);
-            border: 3px dashed #f1c40f;
-            border-radius: 15px;
-            padding: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
+        .final-container { display: none; grid-template-columns: repeat(2, 1fr); gap: 20px; width: 100%; height: 100%; max-height: 450px; }
+        .final-column { background: rgba(0, 0, 0, 0.4); border: 3px dashed #f1c40f; border-radius: 15px; padding: 15px; display: flex; flex-direction: column; gap: 10px; }
         .final-column h3 { margin: 0 0 10px 0; text-align: center; color: #1abc9c; font-size: 1.8rem; }
-        .final-row {
-            display: flex;
-            background: #2c3e50;
-            border: 3px solid #7f8c8d;
-            border-radius: 8px;
-            height: 55px;
-            align-items: center;
-            font-size: 1.6rem;
-        }
+        .final-row { display: flex; background: #2c3e50; border: 3px solid #7f8c8d; border-radius: 8px; height: 55px; align-items: center; font-size: 1.6rem; }
         .final-ans { flex-grow: 1; padding-left: 15px; color: #fff; text-transform: uppercase; }
-        .final-pts { width: 70px; text-align: center; background: #111f38; height: 100%; display: flex; align-items: center; justify-content: center; color: #f1c40f; font-weight: bold; border-left: 3px solid #7f8c8d; }
-        
-        .timer-box {
-            font-size: 3.5rem;
-            background: #e74c3c;
-            color: white;
-            padding: 10px 30px;
-            border-radius: 10px;
-            border: 4px solid white;
-            font-family: monospace;
-            display: none;
-        }
+        .final-pts { width: 80px; text-align: center; background: #111f38; height: 100%; display: flex; align-items: center; justify-content: center; color: #f1c40f; font-weight: bold; border-left: 3px solid #7f8c8d; }
+        .timer-box { font-size: 3.5rem; background: #e74c3c; color: white; padding: 10px 30px; border-radius: 10px; border: 4px solid white; font-family: monospace; display: none; }
 
         #wrong-overlay {
-            position: fixed;
-            top: 0; left: 0; width: 100vw; height: 100vh;
-            background: rgba(0,0,0,0.8);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 999;
-            visibility: hidden;
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.8);
+            display: flex; justify-content: center; align-items: center; z-index: 999; visibility: hidden; opacity: 0;
         }
         #wrong-overlay div {
-            font-size: 25rem;
-            color: #e74c3c;
-            font-family: Arial, sans-serif;
-            font-weight: bold;
-            transform: scale(0.5);
-            transition: transform 0.2s ease-in-out;
+            font-size: 28rem; color: #e74c3c; font-family: Arial, sans-serif; font-weight: bold;
+            text-shadow: 0px 0px 40px rgba(231,76,60,0.6); transform: scale(0.3); transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
-        #wrong-overlay.active { visibility: visible; }
+        #wrong-overlay.active { visibility: visible; opacity: 1; }
         #wrong-overlay.active div { transform: scale(1); }
+        @keyframes popIn { 0% { transform: scale(0); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
     </style>
 </head>
 <body>
 
     <header id="main-header">FAMILIADA - DZIEŃ INFORMATYKA ZSI</header>
-    
     <div id="question-display">Oczekiwanie na pytanie...</div>
     <div id="timer" class="timer-box">20</div>
 
-    <!-- PLANSZA KLASYCZNA -->
-    <div class="board-container" id="normal-board">
-        <div class="slot" id="s1"><span class="text">1. --------------------</span><span class="pts">--</span></div>
-        <div class="slot" id="s4"><span class="text">4. --------------------</span><span class="pts">--</span></div>
-        <div class="slot" id="s2"><span class="text">2. --------------------</span><span class="pts">--</span></div>
-        <div class="slot" id="s5"><span class="text">5. --------------------</span><span class="pts">--</span></div>
-        <div class="slot" id="s3"><span class="text">3. --------------------</span><span class="pts">--</span></div>
-        <div class="slot" id="s6"><span class="text">6. --------------------</span><span class="pts">--</span></div>
-    </div>
-
-    <!-- PLANSZA FINAŁOWA -->
-    <div class="final-container" id="final-board">
-        <div class="final-column">
-            <h3>GRACZ 1</h3>
-            <div class="final-row"><div class="final-ans" id="f1-a1"></div><div class="final-pts" id="f1-p1"></div></div>
-            <div class="final-row"><div class="final-ans" id="f1-a2"></div><div class="final-pts" id="f1-p2"></div></div>
-            <div class="final-row"><div class="final-ans" id="f1-a3"></div><div class="final-pts" id="f1-p3"></div></div>
-            <div class="final-row"><div class="final-ans" id="f1-a4"></div><div class="final-pts" id="f1-p4"></div></div>
-            <div class="final-row"><div class="final-ans" id="f1-a5"></div><div class="final-pts" id="f1-p5"></div></div>
+    <div class="game-layout">
+        <div class="side-strikes" id="strikes-team1">
+            <div id="t1-x1">X</div><div id="t1-x2">X</div><div id="t1-x3">X</div>
         </div>
-        <div class="final-column">
-            <h3>GRACZ 2</h3>
-            <div class="final-row"><div class="final-ans" id="f2-a1"></div><div class="final-pts" id="f2-p1"></div></div>
-            <div class="final-row"><div class="final-ans" id="f2-a2"></div><div class="final-pts" id="f2-p2"></div></div>
-            <div class="final-row"><div class="final-ans" id="f2-a3"></div><div class="final-pts" id="f2-p3"></div></div>
-            <div class="final-row"><div class="final-ans" id="f2-a4"></div><div class="final-pts" id="f2-p4"></div></div>
-            <div class="final-row"><div class="final-ans" id="f2-a5"></div><div class="final-pts" id="f2-p5"></div></div>
+
+        <div class="board-container" id="normal-board">
+            <div class="slot" id="s1"><span class="text">1. --------------------</span><span class="pts">--</span></div>
+            <div class="slot" id="s4"><span class="text">4. --------------------</span><span class="pts">--</span></div>
+            <div class="slot" id="s2"><span class="text">2. --------------------</span><span class="pts">--</span></div>
+            <div class="slot" id="s5"><span class="text">5. --------------------</span><span class="pts">--</span></div>
+            <div class="slot" id="s3"><span class="text">3. --------------------</span><span class="pts">--</span></div>
+            <div class="slot" id="s6"><span class="text">6. --------------------</span><span class="pts">--</span></div>
+        </div>
+
+        <div class="board-container" id="final-board" style="display:none;">
+            <div class="final-container" id="final-board-grid" style="display: grid; width:100%;">
+                <div class="final-column">
+                    <h3>GRACZ 1</h3>
+                    <div class="final-row"><div class="final-ans" id="f1-a1"></div><div class="final-pts" id="f1-p1"></div></div>
+                    <div class="final-row"><div class="final-ans" id="f1-a2"></div><div class="final-pts" id="f1-p2"></div></div>
+                    <div class="final-row"><div class="final-ans" id="f1-a3"></div><div class="final-pts" id="f1-p3"></div></div>
+                    <div class="final-row"><div class="final-ans" id="f1-a4"></div><div class="final-pts" id="f1-p4"></div></div>
+                    <div class="final-row"><div class="final-ans" id="f1-a5"></div><div class="final-pts" id="f1-p5"></div></div>
+                </div>
+                <div class="final-column">
+                    <h3>GRACZ 2</h3>
+                    <div class="final-row"><div class="final-ans" id="f2-a1"></div><div class="final-pts" id="f2-p1"></div></div>
+                    <div class="final-row"><div class="final-ans" id="f2-a2"></div><div class="final-pts" id="f2-p2"></div></div>
+                    <div class="final-row"><div class="final-ans" id="f2-a3"></div><div class="final-pts" id="f2-p3"></div></div>
+                    <div class="final-row"><div class="final-ans" id="f2-a4"></div><div class="final-pts" id="f2-p4"></div></div>
+                    <div class="final-row"><div class="final-ans" id="f2-a5"></div><div class="final-pts" id="f2-p5"></div></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="side-strikes" id="strikes-team2">
+            <div id="t2-x1">X</div><div id="t2-x2">X</div><div id="t2-x3">X</div>
         </div>
     </div>
 
     <div class="score-row" id="normal-scores">
-        <div class="score-box blue" id="score-t1">NAUCZYCIELE: 0</div>
-        <div class="score-box" id="score-t2">PROGRAMIŚCI: 0</div>
+        <div class="score-box" id="score-t1">PROGRAMIŚCI: 0</div>
+        <div class="score-box red" id="score-t2">INFORMATYCY: 0</div>
     </div>
 
     <div class="score-row" id="final-scores" style="display:none; justify-content:center;">
-        <div class="score-box" id="final-total" style="background:#1abc9c; width: 400px;">SUMA FINAŁU: 0 / 200</div>
+        <div class="score-box" id="final-total" style="background:#1abc9c; width: 450px;">SUMA FINAŁU: 0 / 200</div>
     </div>
 
     <div id="wrong-overlay"><div>X</div></div>
@@ -200,16 +123,16 @@
             if (e.key === 'familiada_state') {
                 const state = JSON.parse(e.newValue);
                 
-                // Przełączanie trybów Gra zwykła / Finał
                 if(state.isFinal) {
                     document.getElementById('normal-board').style.display = 'none';
                     document.getElementById('normal-scores').style.display = 'none';
-                    document.getElementById('final-board').style.display = 'grid';
+                    document.getElementById('strikes-team1').style.display = 'none';
+                    document.getElementById('strikes-team2').style.display = 'none';
+                    document.getElementById('final-board').style.display = 'block';
                     document.getElementById('final-scores').style.display = 'flex';
                     document.getElementById('question-display').style.display = 'none';
-                    document.getElementById('main-header').innerText = "🔥 FINAŁ TELECOALICJI! 🔥";
+                    document.getElementById('main-header').innerText = "🔥 FINAŁ TURNIEJU! 🔥";
                     
-                    // Zegar
                     if(state.timerRunning) {
                         document.getElementById('timer').style.display = 'block';
                         document.getElementById('timer').innerText = state.timeLeft;
@@ -217,7 +140,6 @@
                         document.getElementById('timer').style.display = 'none';
                     }
 
-                    // Mapowanie Finału
                     let totalFinalPts = 0;
                     for(let g=1; g<=2; g++) {
                         for(let p=1; p<=5; p++) {
@@ -228,14 +150,13 @@
                         }
                     }
                     document.getElementById('final-total').innerText = `SUMA FINAŁU: ${totalFinalPts} / 200`;
-                    if(totalFinalPts >= 200) {
-                        document.getElementById('final-total').style.background = '#2ecc71';
-                    }
+                    if(totalFinalPts >= 200) document.getElementById('final-total').style.background = '#2ecc71';
 
                 } else {
-                    // Tryb normalny
                     document.getElementById('normal-board').style.display = 'grid';
                     document.getElementById('normal-scores').style.display = 'flex';
+                    document.getElementById('strikes-team1').style.display = 'flex';
+                    document.getElementById('strikes-team2').style.display = 'flex';
                     document.getElementById('final-board').style.display = 'none';
                     document.getElementById('final-scores').style.display = 'none';
                     document.getElementById('question-display').style.display = 'block';
@@ -243,9 +164,18 @@
                     document.getElementById('main-header').innerText = "FAMILIADA - DZIEŃ INFORMATYKA ZSI";
 
                     document.getElementById('question-display').innerText = state.currentQuestion;
-                    document.getElementById('score-t1').innerText = `NAUCZYCIELE: ${state.score1}`;
-                    document.getElementById('score-t2').innerText = `PROGRAMIŚCI: ${state.score2}`;
+                    document.getElementById('score-t1').innerText = `PROGRAMIŚCI: ${state.score1}`;
+                    document.getElementById('score-t2').innerText = `INFORMATYCY: ${state.score2}`;
                     
+                    for(let t=1; t<=2; t++) {
+                        const count = state[`strikesTeam${t}`];
+                        for(let x=1; x<=3; x++) {
+                            const el = document.getElementById(`t${t}-x${x}`);
+                            if(x <= count) el.classList.add('active-strike');
+                            else el.classList.remove('active-strike');
+                        }
+                    }
+
                     for(let i=1; i<=6; i++) {
                         const slot = document.getElementById(`s${i}`);
                         const ans = state.answers[i-1];

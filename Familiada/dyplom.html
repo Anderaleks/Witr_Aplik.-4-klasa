@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Dyplom - Familiada</title>
+<style>
+    body {
+        background-color: #0c0c0c;
+        color: #00FF41;
+        font-family: 'Consolas', 'Courier New', monospace;
+        padding: 50px;
+        line-height: 1.6;
+        max-width: 850px;
+        margin: 0 auto;
+        font-size: 16px;
+    }
+    .highlight { color: #FFFFFF; font-weight: bold; }
+    .gold { color: #FFD700; font-weight: bold; font-size: 1.3em; }
+    .border { 
+        border-top: 1px dashed #00FF41; 
+        border-bottom: 1px dashed #00FF41; 
+        padding: 15px 0; 
+        margin: 25px 0; 
+    }
+    .center { text-align: center; }
+    .input-line::after { 
+        content: "█"; 
+        animation: blink 1s step-start infinite; 
+    }
+    .flex-row {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 50px;
+    }
+    @keyframes blink { 50% { opacity: 0; } }
+</style>
+</head>
+<body>
+    <p>user@familiada:~$ sudo ./wrecz_dyplom.sh --zwyciezcy<br>
+    [sudo] password for user: <span class="highlight">********</span></p>
+
+    <div class="border center">
+        <h2 class="highlight">🏆 DYPLOM ZWYCIĘSTWA 🏆</h2>
+    </div>
+
+    <p>> KOMPILACJA WYNIKÓW... <span class="highlight">[OK]</span><br>
+    > SPRAWDZANIE ODPOWIEDZI... <span class="highlight">[OK]</span></p>
+
+    <p>Niniejszym zaświadcza się, że drużyna:<br>
+    <span class="highlight">[...................................................]</span></p>
+
+    <p>zwyciężyła w turnieju:<br>
+    <span class="highlight">🎓 FAMILIADA: „INFORMATYCY vs PROGRAMIŚCI” 💻</span></p>
+
+    <p>Wykazując się:<br>
+    ├── [OK] Wyjątkową wiedzą<br>
+    ├── [OK] Refleksem<br>
+    ├── [OK] Kreatywnością<br>
+    └── [OK] Odpowiadaniem szybciej niż ping do 8.8.8.8</p>
+
+    <p>Skład zwycięskiej drużyny:<br>
+    1. ...............................................<br>
+    2. ...............................................<br>
+    3. ...............................................<br>
+    4. ...............................................<br>
+    5. ...............................................</p>
+
+    <p class="highlight">*** ZARZĄDZENIE SYSTEMOWE ***</p>
+    <p>Za swoje osiągnięcie uczestnicy otrzymują tytuł:<br>
+    <span class="gold">🏅 MISTRZÓW KOMPILACJI WIEDZY 🏅</span></p>
+
+    <p>Zaktualizowane uprawnienia (chmod 777):<br>
+    [✓] +100 do szacunku w pokoju nauczycielskim / zapleczu<br>
+    [✓] Prawo do chwalenia się wynikiem do następnej edycji<br>
+    [✓] Przyznano status: <span class="highlight">sudo champions</span></p>
+
+    <div class="border">
+        <p>--- RAPORT KOŃCOWY ---<br>
+        Liczba błędów      : 0<br>
+        Liczba ostrzeżeń   : 0<br>
+        Poziom satysfakcji : 100%</p>
+    </div>
+
+    <div class="flex-row">
+        <span>Data: 15/06/2026<span>
+        <span>Podpis (Sysadmin): ct22pabiana</span>
+    </div>
+
+    <p class="input-line" style="margin-top: 40px;">user@familiada:~$ </p>
+</body>
+</html>
